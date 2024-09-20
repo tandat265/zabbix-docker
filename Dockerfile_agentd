@@ -1,0 +1,39 @@
+# Bắt đầu từ hình ảnh Ubuntu chính thức
+FROM ubuntu:20.04
+
+# Thiết lập biến môi trường để không bị hỏi khi cài đặt
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Cập nhật hệ thống và cài đặt các gói cần thiết
+RUN apt-get update && \
+    apt-get install -y \
+    wget \
+    curl \
+    apt-transport-https \
+    gnupg \
+    lsb-release
+
+# Thêm kho lưu trữ Zabbix
+RUN wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-1+ubuntu20.04_all.deb && \
+    dpkg -i zabbix-release_6.0-1+ubuntu20.04_all.deb && \
+    apt-get update
+
+# Cài đặt Zabbix Agent
+RUN apt-get install -y zabbix-agent
+
+# Copy file cấu hình của Zabbix Agent
+COPY ./zabbix/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
+
+# Cài đặt Elasticsearch
+RUN wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - && \
+    echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-7.x.list && \
+    apt-get update && apt-get install -y elasticsearch
+
+# Cài đặt Filebeat
+RUN apt-get install -y filebeat
+
+# Expose các cổng cần thiết
+EXPOSE 9200 5044 10050
+
+# Khởi động các dịch vụ cần thiết
+CMD ["sh", "-c", "service elasticsearch start && filebeat -e -c /etc/filebeat/filebeat.yml && tail -f /dev/null"]

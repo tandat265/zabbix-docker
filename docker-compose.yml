@@ -4,15 +4,15 @@ services:
   zabbix-server-mysql:
     build: 
       context: .
-      dockerfile: Dockerfile # Your Dockerfile with Zabbix Server, MySQL, Apache, and related services
-    container_name: zabbix-server-mysql
+      dockerfile: Dockerfile_server # Dockerfile với Zabbix Server, MySQL và Apache
+    container_name: zabbix-server
     ports:
       - "80:80"         # Zabbix Frontend
       - "10051:10051"   # Zabbix Server
       - "3306:3306"     # MySQL
     environment:
       MYSQL_ROOT_PASSWORD: root
-      TZ: "Europe/London" # Change to your timezone
+      TZ: "Europe/London" # Thay đổi thành timezone của bạn
     volumes:
       - zabbix_server_db_data:/var/lib/mysql
     depends_on:
@@ -20,19 +20,17 @@ services:
     restart: always
 
   zabbix-agent-elastic:
-    image: ubuntu:20.04
-    container_name: zabbix-agent-elastic
     build: 
       context: .
-      dockerfile: Dockerfile # A Dockerfile that sets up Elasticsearch, Filebeat, and Zabbix Agent
+      dockerfile: Dockerfile_agentd # Dockerfile với Elasticsearch, Filebeat và Zabbix Agent
+    container_name: zabbix-agentd
     ports:
       - "9200:9200"     # Elasticsearch
       - "5044:5044"     # Filebeat
       - "10050:10050"   # Zabbix Agent
     environment:
-      TZ: "Europe/London" # Change to your timezone
+      TZ: "Europe/London" # Thay đổi thành timezone của bạn
     volumes:
-      - ./zabbix_agentd.conf:/etc/zabbix/zabbix_agentd.conf  # Mount file cấu hình từ host
       - elasticsearch_data:/var/lib/elasticsearch
       - filebeat_data:/usr/share/filebeat
     restart: always
