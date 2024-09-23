@@ -56,8 +56,12 @@ COPY ./mysql/import-schema.sh /docker-entrypoint-initdb.d/
 # Thiết lập quyền thực thi cho script import
 RUN chmod +x /docker-entrypoint-initdb.d/import-schema.sh
 
+# Tạo thư mục /run/zabbix và thiết lập quyền
+RUN mkdir -p /run/zabbix /run/Zabbix && chown -R zabbix:zabbix /run/zabbix /run/Zabbix
+
 # Expose các cổng cần thiết
 EXPOSE 3306 10051 80
 
 # Khởi động các dịch vụ cần thiết
-CMD ["sh", "-c", "service mysql start && sleep 10 && mysql < /docker-entrypoint-initdb.d/init-db.sql && /docker-entrypoint-initdb.d/import-schema.sh && service apache2 start && /usr/sbin/zabbix_server && tail -f /dev/null"]
+#CMD ["sh", "-c", "service mysql start && sleep 10 && mysql < /docker-entrypoint-initdb.d/init-db.sql && /docker-entrypoint-initdb.d/import-schema.sh && #service apache2 start && /usr/sbin/zabbix_server && tail -f /dev/null"]
+CMD ["sh", "-c", "service mysql start && sleep 10 && mysql < /docker-entrypoint-initdb.d/init-db.sql && service apache2 start && /usr/sbin/zabbix_server && tail -f /dev/null"]

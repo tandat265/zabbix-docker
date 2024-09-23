@@ -1,44 +1,47 @@
 version: '3.7'
-
 services:
-  zabbix-server-mysql:
-    build: 
-      context: .
-      dockerfile: Dockerfile_server # Dockerfile với Zabbix Server, MySQL và Apache
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:latest
     container_name: zabbix-server
-    ports:
-      - "80:80"         # Zabbix Frontend
-      - "10051:10051"   # Zabbix Server
-      - "3306:3306"     # MySQL
     environment:
+      DB_SERVER_HOST: mysql
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
       MYSQL_ROOT_PASSWORD: root
-      TZ: "Europe/London" # Thay đổi thành timezone của bạn
-    volumes:
-      - zabbix_server_db_data:/var/lib/mysql
-    depends_on:
-      - zabbix-agent-elastic
-    restart: always
-
-  zabbix-agent-elastic:
-    build: 
-      context: .
-      dockerfile: Dockerfile_agentd # Dockerfile với Elasticsearch, Filebeat và Zabbix Agent
-    container_name: zabbix-agentd
     ports:
-      - "9200:9200"     # Elasticsearch
-      - "5044:5044"     # Filebeat
-      - "10050:10050"   # Zabbix Agent
-    environment:
-      TZ: "Europe/London" # Thay đổi thành timezone của bạn
-    volumes:
-      - elasticsearch_data:/var/lib/elasticsearch
-      - filebeat_data:/usr/share/filebeat
-    restart: always
+      - "10051:10051"
+    depends_on:
+      - mysql
 
-volumes:
-  zabbix_server_db_data:
-    driver: local
-  elasticsearch_data:
-    driver: local
-  filebeat_data:
-    driver: local
+  zabbix-agent:
+    image: zabbix/zabbix-agent:latest
+    container_name: zabbix-agent
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+    depends_on:
+      - zabbix-server
+    ports:
+      - "10050:10050"
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+  elasticsearch:
+    image: elasticsearch:7.9.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"

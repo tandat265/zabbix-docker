@@ -32,6 +32,10 @@ RUN wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add 
 # Cài đặt Filebeat
 RUN apt-get install -y filebeat
 
+# Copy file cấu hình của elasticsearch && filebeat
+#COPY ./elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+#COPY ./filebeat/filebeat.yml /etc/filebeat/filebeat.yml
+
 # Expose các cổng cần thiết
 EXPOSE 9200 5044 10050
 
