@@ -70,8 +70,8 @@ services:
     ports:
       - '10050:10050'
     environment:
-      - ZBX_SERVER_HOST: zabbix-server
-      - ZBX_HOSTNAME: zabbix-agent
+      - ZBX_SERVER_HOST=zabbix-server
+      - ZBX_HOSTNAME=zabbix-agent
     depends_on:
       - zabbix-server
       
@@ -92,7 +92,7 @@ services:
       
       
   elasticsearch:
-    image: elasticsearch:latest  # Specify your desired version
+    image: elasticsearch:8.15.1  # Specify your desired version
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
