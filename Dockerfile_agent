@@ -1,0 +1,42 @@
+# Sử dụng hình ảnh nền của Ubuntu
+FROM ubuntu:20.04
+
+# Thiết lập biến môi trường để không bị hỏi khi cài đặt
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Cập nhật hệ thống và cài đặt các gói cần thiết
+RUN apt-get update && \
+    apt-get install -y \
+    wget \
+    curl \
+    apt-transport-https \
+    gnupg \
+    lsb-release
+
+# Thêm kho lưu trữ Elastic để cài đặt Filebeat
+RUN wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - && \
+    echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" > /etc/apt/sources.list.d/elastic-7.x.list && \
+    apt-get update && \
+    apt-get install -y filebeat
+
+
+# Cài đặt Zabbix Agent
+RUN wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu20.04_all.deb && \
+    dpkg -i zabbix-release_7.0-2+ubuntu20.04_all.deb && \
+    apt-get update && \
+    apt-get install -y zabbix-agent && \
+    apt-get clean
+
+# Sao chép tệp cấu hình Filebeat vào container
+COPY ./filebeat/filebeat.yml /usr/share/filebeat/filebeat.yml
+
+
+# Cấu hình Zabbix Agent
+RUN echo "Server=${ZBX_SERVER_HOST}" >> /etc/zabbix/zabbix_agentd.conf
+
+# Expose ports
+EXPOSE 10050
+
+# Khởi động dịch vụ
+CMD ["sh", "-c", "service zabbix-agent start && filebeat -e -c /etc/filebeat/filebeat.yml && tail -f /dev/null"]
+

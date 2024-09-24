@@ -77,10 +77,11 @@ http.port: 9200
 #
 # For more information, consult the discovery and cluster formation module documentation.
 #
-cluster.initial_master_nodes:
-  - "zabbix-agentd"
-discovery.seed_hosts:
-  - "0.0.0.0:9300"
+#cluster.initial_master_nodes:
+#  - "zabbix-agentd"
+#discovery.seed_hosts:
+#  - "0.0.0.0:9300"
+discovery.type: single-node
 
 # ---------------------------------- Various -----------------------------------
 #
