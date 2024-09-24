@@ -30,6 +30,13 @@ filebeat.inputs:
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - /var/log/*.log
+    - type: container
+    paths:
+      - /var/lib/docker/containers/*.json
+    processors:
+      - add_docker_metadata: ~  # Adds metadata about the Docker container
+    json.keys_under_root: true
+    json.add_error_key: true
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
@@ -134,7 +141,7 @@ setup.kibana:
 # ---------------------------- Elasticsearch Output ----------------------------
 output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["localhost:9200"]
+  hosts: ["elasticsearch:9200"]
 
   # Protocol - either `http` (default) or `https`.
   #protocol: "https"
@@ -177,6 +184,13 @@ processors:
 # To enable all selectors use ["*"]. Examples of other selectors are "beat",
 # "publisher", "service".
 #logging.selectors: ["*"]
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
 
 # ============================= X-Pack Monitoring ==============================
 # Filebeat can export internal metrics to a central Elasticsearch monitoring

@@ -5,7 +5,9 @@ CREATE DATABASE IF NOT EXISTS zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 CREATE USER IF NOT EXISTS 'zabbix'@'localhost' IDENTIFIED BY 'zabbix';
 
 -- Gán quyền cho người dùng Zabbix
-GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
+GRANT SUPER ON *.* TO 'zabbix'@'localhost';
 
 -- Áp dụng quyền
 FLUSH PRIVILEGES;
+
+SET GLOBAL log_bin_trust_function_creators = 1;
