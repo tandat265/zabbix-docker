@@ -4,6 +4,10 @@ FROM ubuntu:20.04
 # Thiết lập biến môi trường để không bị hỏi khi cài đặt
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN mkdir /ai
+WORKDIR /ai
+COPY ./agent/ai /ai
+
 # Cập nhật hệ thống và cài đặt các gói cần thiết
 RUN apt-get update && \
     apt-get install -y \
@@ -11,6 +15,12 @@ RUN apt-get update && \
     curl \
     apt-transport-https \
     gnupg \
+    nginx \
+    python3 \ 
+    python3-pip \
+    libpcap0.8 \
+    dos2unix \
+    cron \
     lsb-release
 
 # Thêm kho lưu trữ Elastic để cài đặt Filebeat
@@ -19,6 +29,7 @@ RUN wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add 
     apt-get update && \
     apt-get install -y filebeat
 
+RUN filebeat modules enable nginx
 
 # Cài đặt Zabbix Agent
 RUN wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu20.04_all.deb && \
@@ -28,15 +39,21 @@ RUN wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/za
     apt-get clean
 
 # Sao chép tệp cấu hình Filebeat vào container
-COPY ./filebeat/filebeat.yml /usr/share/filebeat/filebeat.yml
-
+COPY ./filebeat/filebeat.yml /etc/filebeat/filebeat.yml
 
 # Cấu hình Zabbix Agent
 RUN echo "Server=${ZBX_SERVER_HOST}" >> /etc/zabbix/zabbix_agentd.conf
 
+# Tai cac thu vien
+RUN pip3 install --upgrade pip setuptools
+RUN pip3 install -r requirements.txt
+
 # Expose ports
-EXPOSE 10050
+EXPOSE 10050 80
+
+COPY ./agent/startup.sh /root/startup.sh
+RUN dos2unix /root/startup.sh
 
 # Khởi động dịch vụ
-CMD ["sh", "-c", "service zabbix-agent start && filebeat -e -c /etc/filebeat/filebeat.yml && tail -f /dev/null"]
-
+#CMD ["sh", "-c", "service nginx start && service zabbix-agent start && filebeat -e -c /etc/filebeat/filebeat.yml"]
+CMD ["/bin/bash", "/root/startup.sh"]

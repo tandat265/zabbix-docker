@@ -1,0 +1,3 @@
+elastic-transport
+elasticsearch
+confluent_kafka

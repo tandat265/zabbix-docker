@@ -1,0 +1,19 @@
+# Module: nginx
+# Docs: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-nginx.html
+
+- module: nginx
+  # Access logs
+  access:
+    enabled: true
+    # Set the paths to your access log files
+    # Example: /var/log/nginx/access.log
+    # You can specify multiple paths
+    var.paths: ["/var/log/nginx/access.log"]
+
+  # Error logs
+  error:
+    enabled: true
+    # Set the paths to your error log files
+    # Example: /var/log/nginx/error.log
+    # You can specify multiple paths
+    var.paths: ["/var/log/nginx/error.log"]

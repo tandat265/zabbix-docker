@@ -25,20 +25,23 @@ filebeat.inputs:
   id: my-filestream-id
 
   # Change to true to enable this input configuration.
-  enabled: false
+  enabled: true
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - /var/log/*.log
-    - type: container
-    paths:
-      - /var/lib/docker/containers/*.json
-    processors:
-      - add_docker_metadata: ~  # Adds metadata about the Docker container
-    json.keys_under_root: true
-    json.add_error_key: true
+- type: container
+  paths:
+    - /var/lib/docker/containers/*.json
+  processors:
+    - add_docker_metadata: ~  # Adds metadata about the Docker container
+  json.keys_under_root: true
+  json.add_error_key: true
     #- c:\programdata\elasticsearch\logs\*
-
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/*.log  # Đường dẫn đến file log của Nginx
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.
   #exclude_lines: ['^DBG']
@@ -108,7 +111,7 @@ setup.template.settings:
 
 # Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
 # This requires a Kibana endpoint configuration.
-setup.kibana:
+#setup.kibana:
 
   # Kibana Host
   # Scheme and port can be left out and will be set to the default (http and 5601)
@@ -139,7 +142,7 @@ setup.kibana:
 # Configure what output to use when sending the data collected by the beat.
 output.kafka:
   hosts: ["kafka:9092"]  # Kafka service in your Docker Compose
-  topic: "log"  # Specify the topic you want to use
+  topic: "webserver-logs"  # Specify the topic you want to use
   partition.round_robin:
     reachable_only: false
   required_acks: 1
