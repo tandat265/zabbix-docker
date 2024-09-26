@@ -7,3 +7,4 @@ matplotlib
 keras 
 scikit-learn
 tensorflow
+jq
