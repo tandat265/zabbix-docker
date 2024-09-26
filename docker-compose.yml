@@ -30,7 +30,6 @@ services:
       - mysql
     ports:
       - "10051:10051"
-
     networks:
       - zabbix-net
     restart: unless-stopped
@@ -70,12 +69,15 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Cho phép Zabbix Agent theo dõi các container Docker (nếu cần)
       - ./agent/nginx/nginx.yml:/etc/filebeat/modules.d/nginx.yml
-      - ./agent/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./elasticsearch/elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml
+      - ./zabbix/zabbix_agentd.conf:/etc/zabbix/zabbix_agentd.conf
     ports:
       - '10050:10050'
       - '80:80'
+      - '9200:9200'
     environment:
       - ZBX_SERVER_HOST=zabbix-server
+      - ZBX_HOSTNAME=zabbix-agent
     depends_on:
       - zabbix-server
          
@@ -93,27 +95,27 @@ services:
       - mysql
       - zabbix-server
       
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.3
-    container_name: elasticsearch
-    ports:
-      - 9200:9200
-    restart: always
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms1G -Xmx1G"
-      - xpack.security.enabled=false
-      - "discovery.type=single-node"
-      - node.name=elasticsearch
-    depends_on:
-      - kafka
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - zabbix-net    
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:8.5.3
+  #   container_name: elasticsearch
+  #   ports:
+  #     - 9200:9200
+  #   restart: always
+  #   environment:
+  #     - cluster.name=docker-cluster
+  #     - bootstrap.memory_lock=true
+  #     - "ES_JAVA_OPTS=-Xms1G -Xmx1G"
+  #     - xpack.security.enabled=false
+  #     - "discovery.type=single-node"
+  #     - node.name=elasticsearch
+  #   depends_on:
+  #     - kafka
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   networks:
+  #     - zabbix-net    
 
     
   zookeeper:

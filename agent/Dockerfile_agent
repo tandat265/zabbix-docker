@@ -16,18 +16,26 @@ RUN apt-get update && \
     apt-transport-https \
     gnupg \
     nginx \
-    python3 \ 
+    software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y python3.10 python3.10-distutils python3.10-venv \
     python3-pip \
     libpcap0.8 \
     dos2unix \
     cron \
+    nano \
     lsb-release
+    
+# Cài đặt pip cho Python 3.10
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
+
 
 # Thêm kho lưu trữ Elastic để cài đặt Filebeat
 RUN wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - && \
     echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" > /etc/apt/sources.list.d/elastic-7.x.list && \
     apt-get update && \
-    apt-get install -y filebeat
+    apt-get install -y filebeat elasticsearch
 
 RUN filebeat modules enable nginx
 
@@ -41,15 +49,12 @@ RUN wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/za
 # Sao chép tệp cấu hình Filebeat vào container
 COPY ./filebeat/filebeat.yml /etc/filebeat/filebeat.yml
 
-# Cấu hình Zabbix Agent
-RUN echo "Server=${ZBX_SERVER_HOST}" >> /etc/zabbix/zabbix_agentd.conf
-
 # Tai cac thu vien
-RUN pip3 install --upgrade pip setuptools
-RUN pip3 install -r requirements.txt
+RUN python3.10 -m pip install --upgrade pip setuptools
+RUN python3.10 -m pip install -r requirements.txt
 
 # Expose ports
-EXPOSE 10050 80
+EXPOSE 10050 80 9200
 
 COPY ./agent/startup.sh /root/startup.sh
 RUN dos2unix /root/startup.sh

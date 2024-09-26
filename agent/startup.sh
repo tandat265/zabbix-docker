@@ -1,4 +1,5 @@
 service nginx start
+service elasticsearch start
 service zabbix-agent start
 filebeat -e -c /etc/filebeat/filebeat.yml
 python3 /ai/kafka_consumer.py

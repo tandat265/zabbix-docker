@@ -47,7 +47,7 @@ conf = {
 consumer = Consumer(conf)
 topics = ['webserver-logs']
 consumer.subscribe(topics)
-es = Elasticsearch(hosts='http://elasticsearch:9200')
+es = Elasticsearch(hosts='http://zabbix-agent:9200')
 def process_data(message):
     pattern = r'(?P<ip>[\d.]+) - - \[(?P<timestamp>[^\]]+)\] "(?P<request>[^"]+)" (?P<status>\d+) (?P<response_size>\d+) "(?P<referrer>[^"]+)" "(?P<user_agent>[^"]+)"'
     log_entry = message['message']
@@ -79,7 +79,7 @@ def process_data(message):
 def push_es(message):
     data = process_data(message)
     if data != None:
-        res = es.index(index='apache-log',document=data)
+        res = es.index(index='nginx-log',document=data)
 
 def get_message():
     while True:
@@ -89,14 +89,14 @@ def get_message():
                 continue
             message_json = json.loads(msg.value().decode('utf-8'))
             print(message_json)
-            # push_es(message_json)
+            push_es(message_json)
         except Exception as e:
             print(e)
-            
-url_test = "GET /tienda1/publico/caracteristicas.jsp?id=d%27z%220"
-detector = Detector()
-t = detector.predict_url(url_test)
-print(t)
+
+# url_test = "GET /tienda1/publico/caracteristicas.jsp?id=d%27z%220"
+# detector = Detector()
+# t = detector.predict_url(url_test)
+# print(t)
 
 
 get_message()
