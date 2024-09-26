@@ -62,6 +62,8 @@ def process_data(message):
         data_predict = request.split(' ')
         detector = Detector()
         type_attack = detector.predict_url(request)
+        if request == "GET / HTTP/1.1":
+            type_attack = "normal"
         data = {
             "request": request,
             "status": status,
@@ -78,6 +80,8 @@ def process_data(message):
     
 def push_es(message):
     data = process_data(message)
+    if data['attack'] != None and data['attack'] != 'normal':
+        res = es.index(index='alert-log', document=data)    
     if data != None:
         res = es.index(index='nginx-log',document=data)
 

@@ -9,6 +9,7 @@ services:
       MYSQL_DATABASE: zabbix
       MYSQL_USER: zabbix
       MYSQL_PASSWORD: zabbix
+      TZ: Asia/Ho_Chi_Minh
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d
     command: --log-bin-trust-function-creators=1 --character-set-server=utf8 --collation-server=utf8_bin
@@ -26,6 +27,7 @@ services:
       MYSQL_PASSWORD: zabbix
       MYSQL_ROOT_PASSWORD: root
       ZBX_SERVER_HOST: zabbix-server
+      TZ: Asia/Ho_Chi_Minh
     depends_on:
       - mysql
     ports:
@@ -45,7 +47,7 @@ services:
       MYSQL_PASSWORD: zabbix
       MYSQL_ROOT_PASSWORD: root
       ZBX_SERVER_HOST: zabbix-server
-      PHP_TZ: Asia/HoChiMinh  # Change this to your time zone
+      TZ: Asia/Ho_Chi_Minh  # Change this to your time zone
     depends_on:
       - zabbix-server
     volumes:
@@ -76,8 +78,9 @@ services:
       - '80:80'
       - '9200:9200'
     environment:
-      - ZBX_SERVER_HOST=zabbix-server
-      - ZBX_HOSTNAME=zabbix-agent
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: zabbix-agent
+      TZ: Asia/Ho_Chi_Minh
     depends_on:
       - zabbix-server
          
@@ -90,7 +93,8 @@ services:
     ports:
       - '3000:3000'
     environment: 
-      - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
+      GF_INSTALL_PLUGINS: alexanderzobnin-zabbix-app
+      TZ: Asia/Ho_Chi_Minh
     depends_on:
       - mysql
       - zabbix-server
@@ -126,6 +130,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+      TZ: Asia/Ho_Chi_Minh
     ports:
       - 2181:2181
     networks:
