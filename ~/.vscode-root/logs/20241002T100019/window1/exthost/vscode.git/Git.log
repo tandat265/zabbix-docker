@@ -1,0 +1,70 @@
+2024-10-02 10:00:28.896 [info] [main] Log level: Info
+2024-10-02 10:00:28.896 [info] [main] Validating found git in: "git"
+2024-10-02 10:00:28.896 [info] [main] Using git "2.45.2" from "git"
+2024-10-02 10:00:28.896 [info] [Model][doInitialScan] Initial repository scan started
+2024-10-02 10:00:28.896 [info] > git rev-parse --show-toplevel [56ms]
+2024-10-02 10:00:28.920 [info] > git rev-parse --git-dir --git-common-dir [85ms]
+2024-10-02 10:00:29.068 [info] [Model][openRepository] Opened repository: /home/kali/Desktop/GSANM
+2024-10-02 10:00:29.423 [info] > git rev-parse --show-toplevel [56ms]
+2024-10-02 10:00:29.424 [info] > git config --get commit.template [154ms]
+2024-10-02 10:00:29.709 [info] > git rev-parse --show-toplevel [110ms]
+2024-10-02 10:00:29.751 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [258ms]
+2024-10-02 10:00:29.758 [info] > git rev-parse --show-toplevel [8ms]
+2024-10-02 10:00:29.898 [info] > git rev-parse --show-toplevel [66ms]
+2024-10-02 10:00:30.381 [info] > git status -z -uall [603ms]
+2024-10-02 10:00:30.383 [info] > git check-ignore -v -z --stdin [86ms]
+2024-10-02 10:00:30.385 [info] > git rev-parse --show-toplevel [254ms]
+2024-10-02 10:00:30.844 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [381ms]
+2024-10-02 10:00:30.867 [info] > git config --get commit.template [74ms]
+2024-10-02 10:00:30.867 [info] > git rev-parse --show-toplevel [99ms]
+2024-10-02 10:00:31.009 [info] > git config --local branch.main.vscode-merge-base [152ms]
+2024-10-02 10:00:31.009 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-02 10:00:31.120 [info] > git reflog main --grep-reflog=branch: Created from *. [70ms]
+2024-10-02 10:00:31.208 [info] > git rev-parse --show-toplevel [203ms]
+2024-10-02 10:00:31.352 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [252ms]
+2024-10-02 10:00:31.449 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [241ms]
+2024-10-02 10:00:31.449 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-02 10:00:31.617 [info] > git rev-parse --show-toplevel [266ms]
+2024-10-02 10:00:32.005 [info] > git merge-base refs/heads/main refs/remotes/origin/main [459ms]
+2024-10-02 10:00:32.338 [info] > git status -z -uall [471ms]
+2024-10-02 10:00:32.339 [info] > git rev-list --count --left-right refs/heads/main...refs/remotes/origin/main [296ms]
+2024-10-02 10:00:32.396 [info] > git rev-parse --show-toplevel [571ms]
+2024-10-02 10:00:32.397 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-10-02 10:00:32.422 [info] > git check-ignore -v -z --stdin [15ms]
+2024-10-02 10:00:32.423 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [41ms]
+2024-10-02 10:00:32.434 [info] > git diff --name-status -z --diff-filter=ADMR 0b657e6f79dd47bb3badc5f9813e6e0654697398...refs/remotes/origin/main [80ms]
+2024-10-02 10:00:32.455 [info] > git config --local branch.main.vscode-merge-base [21ms]
+2024-10-02 10:00:32.455 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-02 10:00:32.603 [info] > git reflog main --grep-reflog=branch: Created from *. [137ms]
+2024-10-02 10:00:32.772 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [110ms]
+2024-10-02 10:00:32.772 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-02 10:00:33.744 [info] > git config --get commit.template [42ms]
+2024-10-02 10:00:33.795 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [64ms]
+2024-10-02 10:00:34.336 [info] > git status -z -uall [487ms]
+2024-10-02 10:00:34.997 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [590ms]
+2024-10-02 10:00:35.185 [info] > git config --local branch.main.vscode-merge-base [119ms]
+2024-10-02 10:00:35.204 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-02 10:00:35.431 [info] > git reflog main --grep-reflog=branch: Created from *. [156ms]
+2024-10-02 10:00:35.595 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [89ms]
+2024-10-02 10:00:35.596 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-02 10:00:39.920 [info] > git config --get commit.template [321ms]
+2024-10-02 10:00:40.142 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [200ms]
+2024-10-02 10:00:40.899 [info] > git status -z -uall [465ms]
+2024-10-02 10:00:40.962 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [21ms]
+2024-10-02 10:00:41.204 [info] > git config --local branch.main.vscode-merge-base [222ms]
+2024-10-02 10:00:41.204 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-02 10:00:41.336 [info] > git reflog main --grep-reflog=branch: Created from *. [84ms]
+2024-10-02 10:00:41.410 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [48ms]
+2024-10-02 10:00:41.410 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-02 10:00:41.891 [info] > git ls-files --stage -- /home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py [37ms]
+2024-10-02 10:00:41.922 [info] > git show --textconv :agent/ai/kafka_consumer.py [93ms]
+2024-10-02 10:00:42.166 [info] > git cat-file -s 713ddda460e3b415ec5475e3a64a4a1eca339e1a [248ms]
+2024-10-02 10:00:46.342 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [117ms]
+2024-10-02 10:00:46.350 [info] > git config --get commit.template [204ms]
+2024-10-02 10:00:47.114 [info] > git status -z -uall [699ms]
+2024-10-02 10:00:47.179 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [37ms]
+2024-10-02 10:00:47.404 [info] > git config --local branch.main.vscode-merge-base [184ms]
+2024-10-02 10:00:47.406 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-02 10:00:48.256 [info] > git reflog main --grep-reflog=branch: Created from *. [667ms]
+2024-10-02 10:00:48.639 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [235ms]
+2024-10-02 10:00:48.639 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref

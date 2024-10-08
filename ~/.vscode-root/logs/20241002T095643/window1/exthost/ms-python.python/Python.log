@@ -1,0 +1,12 @@
+2024-10-02 09:56:54.377 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2024-10-02 09:56:54.377 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2024-10-02 09:56:54.377 [info] Experiment 'pythonTestAdapter' is active
+2024-10-02 09:56:54.377 [warning] Dir "/home/kali/Desktop/GSANM/.pixi/envs" is not watchable (directory does not exist)
+2024-10-02 09:56:54.986 [info] Default formatter is set to null for workspace /home/kali/Desktop/GSANM
+2024-10-02 09:56:55.262 [info] Python interpreter path: /bin/python
+2024-10-02 09:56:58.326 [info] > pyenv which python
+2024-10-02 09:56:58.326 [info] cwd: .
+2024-10-02 09:56:58.787 [info] > pixi --version
+2024-10-02 09:56:58.789 [warning] could not find a pixi interpreter for the interpreter at /bin/python
+2024-10-02 09:56:59.713 [warning] could not find a pixi interpreter for the interpreter at /bin/python
+2024-10-02 09:57:05.252 [info] Starting Pylance language server.

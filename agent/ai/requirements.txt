@@ -8,3 +8,5 @@ keras
 scikit-learn
 tensorflow
 jq
+python-telegram-bot
+asyncio

@@ -1,0 +1,13 @@
+2024-09-26 12:39:50.311 [info] Extension host with pid 4635 started
+2024-09-26 12:39:50.312 [info] Skipping acquiring lock for /home/kali/Desktop/GSANM/~/.vscode-root/User/workspaceStorage/4c8ba770d14b27a24c4b625fef88af3d.
+2024-09-26 12:39:52.087 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-09-26 12:39:53.093 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-09-26 12:39:54.382 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-09-26 12:39:54.960 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-09-26 12:39:55.835 [info] Eager extensions activated
+2024-09-26 12:39:56.108 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-09-26 12:39:56.130 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-09-26 12:39:58.395 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2024-09-26 12:40:20.076 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2024-09-26 12:40:24.444 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2024-09-26 12:40:24.624 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'

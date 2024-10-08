@@ -1,0 +1,35 @@
+2024-09-26 09:41:01.299 [info] (Client) Pylance async client (2024.9.2) started with python extension (2024.14.1)
+2024-09-26 09:41:03.640 [info] [Info  - 9:41:03 AM] (10001) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-09-26 09:41:03.641 [info] [Info  - 9:41:03 AM] (10001) Pylance language server 2024.9.2 (pyright version 1.1.378, commit ce64adc1) starting
+2024-09-26 09:41:03.652 [info] [Info  - 9:41:03 AM] (10001) Starting service instance "GSANM"
+2024-09-26 09:41:03.824 [info] [Info  - 9:41:03 AM] (10001) Setting environmentName for service "GSANM": "3.11.9 (global)"
+2024-09-26 09:41:03.826 [info] [Info  - 9:41:03 AM] (10001) Setting pythonPath for service "GSANM": "/bin/python"
+2024-09-26 09:41:03.827 [info] [Info  - 9:41:03 AM] (10001) No include entries specified; assuming /home/kali/Desktop/GSANM
+2024-09-26 09:41:03.830 [info] [Info  - 9:41:03 AM] (10001) Auto-excluding **/node_modules
+2024-09-26 09:41:03.831 [info] [Info  - 9:41:03 AM] (10001) Auto-excluding **/__pycache__
+2024-09-26 09:41:03.832 [info] [Info  - 9:41:03 AM] (10001) Auto-excluding **/.*
+2024-09-26 09:41:04.318 [info] [Info  - 9:41:04 AM] (10001) Assuming Python version 3.11.9.final.0
+2024-09-26 09:41:06.846 [info] [Info  - 9:41:06 AM] (10001) Found 1 source file
+2024-09-26 09:41:09.077 [info] [Info  - 9:41:09 AM] (10001) [FG] Long operation: parsing: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (2057ms)
+2024-09-26 09:41:10.283 [info] [Info  - 9:41:10 AM] (10001) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-09-26 09:41:10.290 [info] [Info  - 9:41:10 AM] (10001) Background analysis(1) started
+2024-09-26 09:41:11.801 [info] [Info  - 9:41:11 AM] (10001) Indexer background runner(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist (index)
+2024-09-26 09:41:11.805 [info] [Info  - 9:41:11 AM] (10001) Indexing(2) started
+2024-09-26 09:41:19.076 [info] [Info  - 9:41:19 AM] (10001) [BG(1)] Long operation: checking: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (5605ms)
+2024-09-26 09:41:19.079 [info] [Info  - 9:41:19 AM] (10001) [BG(1)] Long operation: analyzing: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (8631ms)
+2024-09-26 09:41:23.842 [info] [Info  - 9:41:23 AM] (10001) [IDX(2)] Long operation: scan packages file:///home/kali/Desktop/GSANM (9652ms)
+2024-09-26 09:41:23.843 [info] [Info  - 9:41:23 AM] (10001) scanned(2) 761 files over 1 exec env
+2024-09-26 09:41:27.545 [info] [Info  - 9:41:27 AM] (10001) indexed(2) 545 files over 1 exec env
+2024-09-26 09:41:28.897 [info] [Info  - 9:41:28 AM] (10001) Indexing finished(2).
+2024-09-26 09:44:16.488 [info] [Info  - 9:44:16 AM] (10001) Starting service instance "<default>"
+2024-09-26 09:44:16.732 [info] [Info  - 9:44:16 AM] (10001) Setting environmentName for service "<default>": "3.11.9 (global)"
+2024-09-26 09:44:16.738 [info] [Info  - 9:44:16 AM] (10001) Setting pythonPath for service "<default>": "/bin/python"
+2024-09-26 09:44:16.739 [info] [Info  - 9:44:16 AM] (10001) No include entries specified; assuming /<default workspace root>
+2024-09-26 09:44:16.746 [info] [Info  - 9:44:16 AM] (10001) Auto-excluding **/node_modules
+2024-09-26 09:44:16.746 [info] [Info  - 9:44:16 AM] (10001) Auto-excluding **/__pycache__
+2024-09-26 09:44:16.754 [info] [Info  - 9:44:16 AM] (10001) Auto-excluding **/.*
+2024-09-26 09:44:16.911 [info] [Info  - 9:44:16 AM] (10001) Assuming Python version 3.11.9.final.0
+2024-09-26 09:44:17.867 [info] [Error - 9:44:17 AM] (10001) File or directory "/<default workspace root>" does not exist.
+2024-09-26 09:44:17.868 [info] [Info  - 9:44:17 AM] (10001) No source files found.
+2024-09-26 09:44:19.230 [info] [Info  - 9:44:19 AM] (10001) Background analysis(3) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-09-26 09:44:19.290 [info] [Info  - 9:44:19 AM] (10001) Background analysis(3) started

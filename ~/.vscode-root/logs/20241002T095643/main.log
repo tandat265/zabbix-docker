@@ -1,0 +1,12 @@
+2024-10-02 09:56:44.461 [info] update#setState idle
+2024-10-02 09:57:14.619 [info] update#setState checking for updates
+2024-10-02 09:57:18.086 [info] update#setState idle
+2024-10-02 09:57:46.034 [warning] No ptyHost heartbeat after 6 seconds
+2024-10-02 09:57:57.655 [warning] No ptyHost heartbeat after 6 seconds
+2024-10-02 09:58:08.492 [error] CodeWindow: detected unresponsive
+2024-10-02 09:58:20.421 [warning] No ptyHost heartbeat after 6 seconds
+2024-10-02 09:59:45.571 [warning] No ptyHost heartbeat after 6 seconds
+2024-10-02 09:59:52.014 [error] [UtilityProcessWorker]: terminated unexpectedly with code 18446744072162773000, signal: unknown
+2024-10-02 09:59:54.073 [info] Extension host with pid 132732 exited with code: 0, signal: unknown.
+2024-10-02 10:00:05.695 [error] [UtilityProcessWorker]: terminated unexpectedly with code 18446744072162773000, signal: unknown
+2024-10-02 10:00:05.728 [info] Extension host with pid 134877 exited with code: 0, signal: unknown.

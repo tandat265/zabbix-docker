@@ -1,0 +1,6 @@
+2024-10-02 10:00:04.779 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2024-10-02 10:00:04.779 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2024-10-02 10:00:04.779 [info] Experiment 'pythonTestAdapter' is active
+2024-10-02 10:00:04.779 [warning] Dir "/home/kali/Desktop/GSANM/.pixi/envs" is not watchable (directory does not exist)
+2024-10-02 10:00:05.197 [info] Default formatter is set to null for workspace /home/kali/Desktop/GSANM
+2024-10-02 10:00:05.348 [info] Python interpreter path: /bin/python

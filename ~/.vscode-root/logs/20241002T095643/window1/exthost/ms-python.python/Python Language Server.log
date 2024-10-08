@@ -1,0 +1,24 @@
+2024-10-02 09:56:59.933 [info] (Client) Pylance async client (2024.9.2) started with python extension (2024.14.1)
+2024-10-02 09:57:05.065 [info] [Info  - 9:57:04 AM] (133007) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-10-02 09:57:05.080 [info] [Info  - 9:57:05 AM] (133007) Pylance language server 2024.9.2 (pyright version 1.1.378, commit ce64adc1) starting
+2024-10-02 09:57:05.132 [info] [Info  - 9:57:05 AM] (133007) Starting service instance "GSANM"
+2024-10-02 09:57:05.777 [info] [Info  - 9:57:05 AM] (133007) Setting environmentName for service "GSANM": "3.11.9 (global)"
+2024-10-02 09:57:05.779 [info] [Info  - 9:57:05 AM] (133007) Setting pythonPath for service "GSANM": "/bin/python"
+2024-10-02 09:57:05.814 [info] [Info  - 9:57:05 AM] (133007) No include entries specified; assuming /home/kali/Desktop/GSANM
+2024-10-02 09:57:05.825 [info] [Info  - 9:57:05 AM] (133007) Auto-excluding **/node_modules
+2024-10-02 09:57:05.845 [info] [Info  - 9:57:05 AM] (133007) Auto-excluding **/__pycache__
+2024-10-02 09:57:05.906 [info] [Info  - 9:57:05 AM] (133007) Auto-excluding **/.*
+2024-10-02 09:57:07.657 [info] [Info  - 9:57:07 AM] (133007) Assuming Python version 3.11.9.final.0
+2024-10-02 09:57:13.422 [info] [Info  - 9:57:13 AM] (133007) Found 1 source file
+2024-10-02 09:57:27.120 [info] [Info  - 9:57:27 AM] (133007) [FG] Long operation: parsing: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (13443ms)
+2024-10-02 09:57:30.911 [info] [Info  - 9:57:30 AM] (133007) [FG] Long operation: binding: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist/typeshed-fallback/stdlib/builtins.pyi (2051ms)
+2024-10-02 09:57:31.727 [info] [Info  - 9:57:31 AM] (133007) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-10-02 09:57:31.738 [info] [Info  - 9:57:31 AM] (133007) Background analysis(1) started
+2024-10-02 09:57:47.512 [info] [Info  - 9:57:47 AM] (133007) Indexer background runner(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist (index)
+2024-10-02 09:57:47.521 [info] [Info  - 9:57:47 AM] (133007) Indexing(2) started
+2024-10-02 09:58:18.190 [info] [Info  - 9:58:18 AM] (133007) [BG(1)] Long operation: parsing: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (38176ms)
+2024-10-02 09:58:35.668 [info] [Info  - 9:58:35 AM] (133007) [BG(1)] Long operation: parsing: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist/typeshed-fallback/stdlib/builtins.pyi (17149ms)
+2024-10-02 09:58:54.748 [info] [Info  - 9:58:54 AM] (133007) [BG(1)] Long operation: parsing: file:///usr/lib/python3/dist-packages/numpy/__init__.pyi (7013ms)
+2024-10-02 09:59:31.539 [info] [Info  - 9:59:28 AM] (133007) [BG(1)] Long operation: parsing: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist/typeshed-fallback/stdlib/typing_extensions.pyi (10644ms)
+2024-10-02 09:59:35.365 [info] [Info  - 9:59:34 AM] (133007) [BG(1)] Long operation: binding: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist/typeshed-fallback/stdlib/typing_extensions.pyi (7582ms)
+2024-10-02 09:59:45.611 [info] [Info  - 9:59:45 AM] (133007) [BG(1)] Long operation: parsing: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist/typeshed-fallback/stdlib/os/__init__.pyi (4916ms)

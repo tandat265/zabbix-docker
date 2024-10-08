@@ -1,0 +1,31 @@
+2024-10-02 10:00:02.396 [info] Extension host with pid 134877 started
+2024-10-02 10:00:02.396 [info] Skipping acquiring lock for /home/kali/Desktop/GSANM/~/.vscode-root/User/workspaceStorage/4c8ba770d14b27a24c4b625fef88af3d.
+2024-10-02 10:00:02.778 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-10-02 10:00:02.802 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2024-10-02 10:00:04.089 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-10-02 10:00:05.412 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-10-02 10:00:05.620 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-10-02 10:00:05.698 [info] Extension host terminating: renderer closed the MessagePort
+2024-10-02 10:00:05.715 [error] Canceled: Canceled
+	at Object.f [as $0] (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:10:1082)
+	at /usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:158:2406
+	at Array.forEach (<anonymous>)
+	at y.dispose (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:158:2344)
+	at m.terminate (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:167:8389)
+	at $.terminate (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:171:1513)
+	at n (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:184:10613)
+	at MessagePortMain.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:184:6805)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2619) setContext undefined
+2024-10-02 10:00:05.720 [error] Canceled: Canceled
+	at Object.f [as $0] (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:10:1082)
+	at /usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:158:2406
+	at Array.forEach (<anonymous>)
+	at y.dispose (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:158:2344)
+	at m.terminate (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:167:8389)
+	at $.terminate (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:171:1513)
+	at n (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:184:10613)
+	at MessagePortMain.<anonymous> (/usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:184:6805)
+	at MessagePortMain.emit (node:events:519:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2619) setContext undefined
+2024-10-02 10:00:05.726 [info] Extension host with pid 134877 exiting with code 0

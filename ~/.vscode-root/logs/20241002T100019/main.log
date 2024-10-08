@@ -1,0 +1,9 @@
+2024-10-02 10:00:19.423 [info] update#setState idle
+2024-10-02 10:00:50.141 [info] update#setState checking for updates
+2024-10-02 10:00:51.514 [info] update#setState idle
+2024-10-02 10:01:19.307 [error] CodeWindow: detected unresponsive
+2024-10-02 10:01:31.775 [warning] No ptyHost heartbeat after 6 seconds
+2024-10-02 10:01:43.432 [error] [UtilityProcessWorker]: terminated unexpectedly with code 850236528, signal: unknown
+2024-10-02 10:01:44.400 [info] Extension host with pid 135334 exited with code: 0, signal: unknown.
+2024-10-02 10:01:53.536 [info] Extension host with pid 136648 exited with code: 0, signal: unknown.
+2024-10-02 10:01:53.729 [error] [UtilityProcessWorker]: terminated unexpectedly with code 850236528, signal: unknown

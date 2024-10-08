@@ -1,0 +1,19 @@
+2024-09-26 09:40:54.374 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2024-09-26 09:40:54.375 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2024-09-26 09:40:54.375 [info] Experiment 'pythonTestAdapter' is active
+2024-09-26 09:40:54.375 [warning] Dir "/home/kali/Desktop/GSANM/.pixi/envs" is not watchable (directory does not exist)
+2024-09-26 09:40:54.708 [info] Default formatter is set to null for workspace /home/kali/Desktop/GSANM
+2024-09-26 09:40:54.987 [info] Python interpreter path: /bin/python
+2024-09-26 09:40:57.866 [info] > pyenv which python
+2024-09-26 09:40:57.867 [info] cwd: .
+2024-09-26 09:40:58.900 [info] > pixi --version
+2024-09-26 09:40:58.905 [warning] could not find a pixi interpreter for the interpreter at /bin/python
+2024-09-26 09:41:00.940 [info] Shell integration status changed, can confirm it's working.
+2024-09-26 09:41:00.941 [warning] could not find a pixi interpreter for the interpreter at /bin/python
+2024-09-26 09:41:01.393 [warning] could not find a pixi interpreter for the interpreter at /bin/python
+2024-09-26 09:41:01.595 [warning] could not find a pixi interpreter for the interpreter at /bin/python
+2024-09-26 09:41:03.754 [info] Starting Pylance language server.
+2024-09-26 09:41:48.164 [info] Discover tests for workspace name: GSANM - uri: /home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py
+2024-09-26 09:41:58.897 [info] Discover tests for workspace name: GSANM - uri: /home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py
+2024-09-26 09:43:26.036 [info] Discover tests for workspace name: GSANM - uri: /home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py
+2024-09-26 09:44:31.277 [info] Discover tests for workspace name: GSANM - uri: /home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py

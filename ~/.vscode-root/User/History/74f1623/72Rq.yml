@@ -1,0 +1,162 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0.39
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      TZ: Asia/Ho_Chi_Minh
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+    command: --log-bin-trust-function-creators=1 --character-set-server=utf8 --collation-server=utf8_bin
+    networks:
+      - zabbix-net
+    restart: unless-stopped
+
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:latest
+    container_name: zabbix-server
+    environment:
+      DB_SERVER_HOST: mysql
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      MYSQL_ROOT_PASSWORD: root
+      ZBX_SERVER_HOST: zabbix-server
+      TZ: Asia/Ho_Chi_Minh
+    depends_on:
+      - mysql
+    ports:
+      - "10051:10051"
+    networks:
+      - zabbix-net
+    restart: unless-stopped
+
+
+  zabbix-frontend:
+    image: zabbix/zabbix-web-apache-mysql:latest
+    container_name: zabbix-frontend
+    environment:
+      DB_SERVER_HOST: mysql
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbix
+      MYSQL_ROOT_PASSWORD: root
+      ZBX_SERVER_HOST: zabbix-server
+      TZ: Asia/Ho_Chi_Minh  # Change this to your time zone
+    depends_on:
+      - zabbix-server
+    volumes:
+      - ./zabbix/apache.conf:/etc/zabbix/apache.conf
+    ports:
+      - "8080:8080"
+    networks:
+      - zabbix-net
+    restart: unless-stopped
+    
+    
+  zabbix-agent:
+    container_name: zabbix-agent
+    build: 
+      context: .
+      dockerfile: ./agent/Dockerfile_agent 
+    networks:
+      - zabbix-net
+    restart: always
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Cho phép Zabbix Agent theo dõi các container Docker (nếu cần)
+      - ./agent/nginx/nginx.yml:/etc/filebeat/modules.d/nginx.yml
+      - ./elasticsearch/elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml
+      - ./zabbix/zabbix_agentd.conf:/etc/zabbix/zabbix_agentd.conf
+    ports:
+      - '10050:10050'
+      - '80:80'
+      - '9200:9200'
+    environment:
+      ZBX_SERVER_HOST: zabbix-server
+      ZBX_HOSTNAME: zabbix-agent
+      TZ: Asia/Ho_Chi_Minh
+    depends_on:
+      - zabbix-server
+         
+  # grafana:
+  #   container_name: grafana
+  #   image: grafana/grafana
+  #   networks:
+  #     - zabbix-net
+  #   restart: always
+  #   ports:
+  #     - '3000:3000'
+  #   environment: 
+  #     GF_INSTALL_PLUGINS: alexanderzobnin-zabbix-app
+  #     TZ: Asia/Ho_Chi_Minh
+  #   depends_on:
+  #     - mysql
+  #     - zabbix-server
+      
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:8.5.3
+  #   container_name: elasticsearch
+  #   ports:
+  #     - 9200:9200
+  #   restart: always
+  #   environment:
+  #     - cluster.name=docker-cluster
+  #     - bootstrap.memory_lock=true
+  #     - "ES_JAVA_OPTS=-Xms1G -Xmx1G"
+  #     - xpack.security.enabled=false
+  #     - "discovery.type=single-node"
+  #     - node.name=elasticsearch
+  #   depends_on:
+  #     - kafka
+  #   ulimits:
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   networks:
+  #     - zabbix-net    
+
+    
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    hostname: zookeeper
+    container_name: zookeeper
+    restart: always
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - 2181:2181
+    networks:
+      - zabbix-net
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    container_name: kafka
+    volumes:
+      - ./kafka/server.properties:/etc/kafka/server.properties
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CREATE_TOPICS="apache-kafka:1:1, traffic-kafka:1:1"
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+    ports:
+      - "9092:9092"  # Internal Kafka port
+    networks:
+      - zabbix-net
+    depends_on:
+      - zookeeper
+    restart: unless-stopped
+
+networks:
+  zabbix-net:
+    driver: bridge

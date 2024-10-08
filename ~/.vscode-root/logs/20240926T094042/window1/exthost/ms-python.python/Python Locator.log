@@ -1,0 +1,35 @@
+2024-09-26 09:40:54.375 [info] Starting Python Locator /root/.vscode/extensions/ms-python.python-2024.14.1-linux-x64/python-env-tools/bin/pet server
+2024-09-26 09:40:54.375 [info] Discovered env: /bin/python
+2024-09-26 09:40:54.375 [info] Discovered env: /bin/python2
+2024-09-26 09:40:54.375 [info] Discovered env: /usr/bin/python
+2024-09-26 09:40:54.375 [info] Discovered env: /bin/python2.7
+2024-09-26 09:40:54.375 [info] Discovered env: /usr/bin/python2
+2024-09-26 09:40:54.375 [info] Resolved /bin/python2
+2024-09-26 09:40:54.375 [info] Resolved /usr/bin/python
+2024-09-26 09:40:54.375 [info] Resolved /bin/python
+2024-09-26 09:40:54.375 [info] Discovered env: /bin/python3
+2024-09-26 09:40:55.517 [info] Resolved /bin/python2.7
+2024-09-26 09:40:57.774 [info] Discovered env: /bin/python3.11
+2024-09-26 09:40:58.074 [info] Resolved /usr/bin/python2
+2024-09-26 09:40:58.209 [info] Discovered env: /usr/bin/python2.7
+2024-09-26 09:40:58.476 [info] Discovered env: /usr/bin/python3
+2024-09-26 09:41:00.810 [info] Discovered env: /usr/bin/python3.11
+2024-09-26 09:41:01.439 [info] Resolved /bin/python3
+2024-09-26 09:41:01.530 [info] Locator Conda took 1.81793639s
+2024-09-26 09:41:01.583 [info] Locator Homebrew took 229.33µs
+2024-09-26 09:41:01.588 [info] Locator LinuxGlobal took 1.907608824s
+2024-09-26 09:41:01.597 [info] Locator PipEnv took 29.993µs
+2024-09-26 09:41:01.597 [info] Locator Poetry took 238.201µs
+2024-09-26 09:41:01.598 [info] Locator PyEnv took 14.291504ms
+2024-09-26 09:41:01.598 [info] Locator Venv took 24.089µs
+2024-09-26 09:41:01.598 [info] Locator VirtualEnv took 33.301µs
+2024-09-26 09:41:01.600 [info] Locator VirtualEnvWrapper took 32.776µs
+2024-09-26 09:41:01.600 [info] Locator GlobalVirtualEnvs took 134.963µs
+2024-09-26 09:41:01.600 [info] Locator Locators took 1.942540208s
+2024-09-26 09:41:01.600 [info] Locator Path took 1.923966068s
+2024-09-26 09:41:01.600 [info] Locator Workspaces took 96.370618ms
+2024-09-26 09:41:01.601 [info] Refresh completed in 1950ms
+2024-09-26 09:41:01.622 [info] Resolved /bin/python3.11
+2024-09-26 09:41:01.643 [info] Resolved /usr/bin/python2.7
+2024-09-26 09:41:01.649 [info] Resolved /usr/bin/python3
+2024-09-26 09:41:01.653 [info] Resolved /usr/bin/python3.11

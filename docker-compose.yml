@@ -16,6 +16,8 @@ services:
     networks:
       - zabbix-net
     restart: unless-stopped
+    ports:
+      - "3306:3306"
 
   zabbix-server:
     image: zabbix/zabbix-server-mysql:latest
@@ -77,6 +79,7 @@ services:
       - '10050:10050'
       - '80:80'
       - '9200:9200'
+      - '2222:22'
     environment:
       ZBX_SERVER_HOST: zabbix-server
       ZBX_HOSTNAME: zabbix-agent
@@ -84,20 +87,20 @@ services:
     depends_on:
       - zabbix-server
          
-  grafana:
-    container_name: grafana
-    image: grafana/grafana
-    networks:
-      - zabbix-net
-    restart: always
-    ports:
-      - '3000:3000'
-    environment: 
-      GF_INSTALL_PLUGINS: alexanderzobnin-zabbix-app
-      TZ: Asia/Ho_Chi_Minh
-    depends_on:
-      - mysql
-      - zabbix-server
+  # grafana:
+  #   container_name: grafana
+  #   image: grafana/grafana
+  #   networks:
+  #     - zabbix-net
+  #   restart: always
+  #   ports:
+  #     - '3000:3000'
+  #   environment: 
+  #     GF_INSTALL_PLUGINS: alexanderzobnin-zabbix-app
+  #     TZ: Asia/Ho_Chi_Minh
+  #   depends_on:
+  #     - mysql
+  #     - zabbix-server
       
   # elasticsearch:
   #   image: docker.elastic.co/elasticsearch/elasticsearch:8.5.3

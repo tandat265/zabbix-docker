@@ -1,0 +1,24 @@
+2024-09-26 12:40:27.455 [info] (Client) Pylance async client (2024.9.2) started with python extension (2024.14.1)
+2024-09-26 12:40:29.584 [info] [Info  - 12:40:29 PM] (5238) Server root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-09-26 12:40:29.590 [info] [Info  - 12:40:29 PM] (5238) Pylance language server 2024.9.2 (pyright version 1.1.378, commit ce64adc1) starting
+2024-09-26 12:40:29.592 [info] [Info  - 12:40:29 PM] (5238) Starting service instance "GSANM"
+2024-09-26 12:40:29.740 [info] [Info  - 12:40:29 PM] (5238) Setting environmentName for service "GSANM": "3.11.9 (global)"
+2024-09-26 12:40:29.742 [info] [Info  - 12:40:29 PM] (5238) Setting pythonPath for service "GSANM": "/bin/python"
+2024-09-26 12:40:29.742 [info] [Info  - 12:40:29 PM] (5238) No include entries specified; assuming /home/kali/Desktop/GSANM
+2024-09-26 12:40:29.746 [info] [Info  - 12:40:29 PM] (5238) Auto-excluding **/node_modules
+2024-09-26 12:40:29.747 [info] [Info  - 12:40:29 PM] (5238) Auto-excluding **/__pycache__
+2024-09-26 12:40:29.748 [info] [Info  - 12:40:29 PM] (5238) Auto-excluding **/.*
+2024-09-26 12:40:30.014 [info] [Info  - 12:40:30 PM] (5238) Assuming Python version 3.11.9.final.0
+2024-09-26 12:40:33.563 [info] [Info  - 12:40:33 PM] (5238) Found 1 source file
+2024-09-26 12:40:36.244 [info] [Info  - 12:40:36 PM] (5238) [FG] Long operation: parsing: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (2568ms)
+2024-09-26 12:40:37.737 [info] [Info  - 12:40:37 PM] (5238) Background analysis(1) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist
+2024-09-26 12:40:37.747 [info] [Info  - 12:40:37 PM] (5238) Background analysis(1) started
+2024-09-26 12:40:39.310 [info] [Info  - 12:40:39 PM] (5238) Indexer background runner(2) root directory: file:///root/.vscode/extensions/ms-python.vscode-pylance-2024.9.2/dist (index)
+2024-09-26 12:40:39.310 [info] [Info  - 12:40:39 PM] (5238) Indexing(2) started
+2024-09-26 12:40:40.194 [info] [Info  - 12:40:40 PM] (5238) [BG(1)] Long operation: SemanticTokens range 41:0 - 121:0 at file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (2317ms)
+2024-09-26 12:40:44.968 [info] [Info  - 12:40:44 PM] (5238) [BG(1)] Long operation: SemanticTokens full at file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (4771ms)
+2024-09-26 12:40:47.123 [info] [Info  - 12:40:47 PM] (5238) [BG(1)] Long operation: analyzing: file:///home/kali/Desktop/GSANM/agent/ai/kafka_consumer.py (2003ms)
+2024-09-26 12:40:51.430 [info] [Info  - 12:40:51 PM] (5238) [IDX(2)] Long operation: scan packages file:///home/kali/Desktop/GSANM (10360ms)
+2024-09-26 12:40:51.431 [info] [Info  - 12:40:51 PM] (5238) scanned(2) 761 files over 1 exec env
+2024-09-26 12:40:53.937 [info] [Info  - 12:40:53 PM] (5238) indexed(2) 545 files over 1 exec env
+2024-09-26 12:40:55.120 [info] [Info  - 12:40:55 PM] (5238) Indexing finished(2).

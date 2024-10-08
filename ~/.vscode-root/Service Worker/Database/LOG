@@ -1,2 +1,3 @@
-2024/09/26-02:52:27.183 2fe2 Creating DB /home/kali/Desktop/GSANM/~/.vscode-root/Service Worker/Database since it was missing.
-2024/09/26-02:52:27.194 2fe2 Reusing MANIFEST /home/kali/Desktop/GSANM/~/.vscode-root/Service Worker/Database/MANIFEST-000001
+2024/10/02-10:01:57.484 21662 Reusing MANIFEST /home/kali/Desktop/GSANM/~/.vscode-root/Service Worker/Database/MANIFEST-000001
+2024/10/02-10:01:57.491 21662 Recovering log #3
+2024/10/02-10:01:57.496 21662 Reusing old log /home/kali/Desktop/GSANM/~/.vscode-root/Service Worker/Database/000003.log 
