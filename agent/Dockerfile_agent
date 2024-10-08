@@ -27,6 +27,7 @@ RUN apt-get update && \
     nano \
     jq \
     openssh-server \
+    rsyslog \
     lsb-release
     
 # Cài đặt pip cho Python 3.10
